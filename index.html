@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>  
+    <head>  
+        <meta charset="UTF-8" />
+        <title> Mokepom</title>
+        <script src = "js/comandos.js"> </script>
+    </head>
+    <body>
+        <h1>Mokepom! 🔥💧🌎</h1>
+        <section id = "seleccionar-mascota"> 
+            <h2>Elige tu mascota:</h2>
+            <label  for="mascota1">Fuego fresquito</label>
+            <input type="radio"  name = "mascota" id= "mascota1"> 
+
+            <label  for="mascota2">fennec</label>
+            <input type="radio" name = "mascota" id = "mascota2">
+
+            <label  for="mascota3">optane</label>
+            <input type="radio" name = "mascota" id = "mascota3">
+            <button id="boton-mascota">Seleccionar</button>
+
+        </section>
+
+        <section id = "seleccionar-ataque"> 
+            <h2>Elige tu ataque:</h2>
+            <p>tu mascota <span id = "mascota-jugador"></span> tiene <span id = "vidajug"></span> vidas</p>
+            <p>mascota enemiga <span id = "mascota-enemigo"></span> tiene <span id = "vidaenem"></span> vidas</p>
+            <p>
+                <button id="fuego">Fuego🔥</button>
+                <button id="agua">Agua💧</button>
+                <button id="tierra">Tierra🌎</button>
+            </p>
+        </section>
+
+        <section id="mensajes">
+            <!--
+            <p><span id = "atJugador"></span> , <span id = "atEnemigo"></span></p>-->
+            <p></p>
+        </section>
+        <section id="reglas">
+            <h2>Reglas del juego</h2>
+             <!--
+            <p>Fuego🔥 destruye a tierra🌎, Agua💧 apaga el Fuego🔥, tierra🌎 aplasta el Agua💧</p>-->
+            <ul>
+                <li>Fuego🔥 destruye a tierra🌎</li>
+                <li>Agua💧 apaga el Fuego🔥</li>
+                <li>tierra🌎 aplasta el Agua💧</li>
+            </ul>
+        </section>
+        <section id = "REINICIAR">
+            <!--
+            <button id="reiniciar">REINICIAR</button>-->
+            <input type="button" value="Reiniciar" onclick="location.reload()">
+        </section>
+
+    </body>
+</html>
