@@ -6,6 +6,10 @@ vidaEnemigo = 3
 contjugador = 0
 contenemigo = 0
 function iniciarJuego(){
+    let ocultarataques = document.getElementById('seleccionar-ataque')
+    let ocultarReglas = document.getElementById('reglas')
+    ocultarReglas.style.display='none'
+    ocultarataques.style.display='none'
     document.getElementById('vidajug').innerHTML=vidaJugador
     document.getElementById('vidaenem').innerHTML=vidaEnemigo
     let boton_selecmascota = document.getElementById('boton-mascota')
@@ -18,7 +22,7 @@ function iniciarJuego(){
     boton_tierra.addEventListener('click',ataquetierra)
 }
 function finDeljuego(){
-
+    
     if(contjugador == contenemigo){
         vidaEnemigo = vidaEnemigo - 1
         vidaJugador = vidaJugador - 1 
@@ -37,6 +41,14 @@ function finDeljuego(){
         vidaJugador = vidaJugador - 1
         gameover = "PERDISTE"
     }
+    mensajes()
+    if(vidaJugador == 0 || vidaEnemigo == 0){
+        setTimeout(gameOverr,1000)
+    }
+
+}
+
+function gameOverr(){
     if(vidaJugador <= 0 && vidaEnemigo <= 0){
         alert("!!EMPATE!!,Oh vuelve a intentarlo ")
         location.reload();
@@ -50,10 +62,6 @@ function finDeljuego(){
         location.reload();
     }
 }
-function reiniciar(){
-    //window.addEventListener('load',iniciarJuego)
-}
-
 function mensajes(){
     document.getElementById('vidajug').innerHTML=vidaJugador
     document.getElementById('vidaenem').innerHTML=vidaEnemigo
@@ -79,26 +87,26 @@ function ataqueEnemigo(){
     
     //document.getElementById('atEnemigo').innerHTML=enemigo
     //document.getElementById('atJugador').innerHTML=ataquejugador
-    alert(enemigo)
+   // alert(enemigo)
     finDeljuego()
-    mensajes()
+    
 }
 function ataquefuego (){
     ataquejugador ="TU MASCOTA ATACO CON FUEGO" 
     contjugador = 1
-    alert(ataquejugador)
+    //alert(ataquejugador)
     ataqueEnemigo()
 }
 function ataqueagua (){
     ataquejugador ="TU MASCOTA ATACO CON AGUA"
     contjugador = 2
-    alert(ataquejugador)
+   // alert(ataquejugador)
     ataqueEnemigo()
 }
 function ataquetierra (){
     ataquejugador ="TU MASCOTA ATACO CON TIERRA" 
     contjugador = 3
-    alert(ataquejugador)
+    //alert(ataquejugador)
     ataqueEnemigo()
 }
 function seleccionarMascotaEnemigo(){
@@ -111,6 +119,12 @@ function seleccionarMascotaEnemigo(){
 }
 
 function seleccionarMascotaJugador(){
+    let ocultarataques = document.getElementById('seleccionar-ataque')
+    let ocultarReglas = document.getElementById('reglas')
+    let ocultarmascota = document.getElementById('seleccionar-mascota')
+    ocultarmascota.style.display='none'
+    ocultarReglas.style.display='block'
+    ocultarataques.style.display='block'
     if(document.getElementById('mascota1').checked){
         //*alert("seleccionaste mascota1")
         document.getElementById('mascota-jugador').innerHTML="Fuego fresquito"
