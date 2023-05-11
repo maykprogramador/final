@@ -144,7 +144,3 @@ function seleccionarMascotaJugador(){
 }
 
 window.addEventListener('load',iniciarJuego)
-
-
-
-
