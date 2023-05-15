@@ -27,7 +27,9 @@ body{
     color:rgb(255, 255, 255);
     font-size: 25px;
 }
-
+h2{
+    color:rgb(255, 255, 255);
+}
 p{
     color:white;
 }
@@ -137,8 +139,11 @@ input.recarga{
 .ataques{
     margin: 0px;
 }
+.reglas{
+    color:rgb(255, 255, 255);
+}
 
-@media (max-width:360px){
+@media (max-width:414px){
     .titulo{
         font-size: 32px;
     }
@@ -155,5 +160,7 @@ input.recarga{
         display: flex;
         font-size: 21px;
         flex-direction: column;
+        color:rgb(255, 255, 255);
     }
+    
 }
