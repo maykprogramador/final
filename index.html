@@ -4,54 +4,77 @@
         <meta charset="UTF-8" />
         <title> Mokepom</title>
         <script src = "js/comandos.js"> </script>
+        <link rel="stylesheet" href="styles.css">
     </head>
     <body>
-        <h1>Mokepom! 🔥💧🌎</h1>
         <section id = "seleccionar-mascota"> 
-            <h2>Elige tu mascota:</h2>
-            <label  for="mascota1">Fuego fresquito</label>
-            <input type="radio"  name = "mascota" id= "mascota1"> 
 
-            <label  for="mascota2">fennec</label>
-            <input type="radio" name = "mascota" id = "mascota2">
+            <h1 class = "titulo">Mokepom! 🔥💧🌎</h1>
+            <h2 class="subtitulo">Elige tu mascota:</h2>
+            <div class = "tarjetas">
+                <label class = "tarjetas-de-mokepom" for="mascota1">
+                    <p>Dominuss</p>
+                    <img src="./assets/DOMINUS.jpg" alt="Dominus"> 
+                </label>
+                <input type="radio"  name = "mascota" id= "mascota1"> 
 
-            <label  for="mascota3">optane</label>
-            <input type="radio" name = "mascota" id = "mascota3">
+                <label class = "tarjetas-de-mokepom" for="mascota2">
+                    <p>Fenecc</p>
+                    <img src="./assets/FENEC.jpg"  alt="Fenecc">
+                </label>
+                <input type="radio" name = "mascota" id = "mascota2">
+
+                <label class = "tarjetas-de-mokepom" for="mascota3">
+                    <p>Octanee</p>
+                    <img src="./assets/OCTANEE.jpg" alt="octanee">
+                </label>
+                <input type="radio" name = "mascota" id = "mascota3">
+            </div>
+            
             <button id="boton-mascota">Seleccionar</button>
 
         </section>
 
         <section id = "seleccionar-ataque"> 
-            <h3>Vidas <span id = "mascota-jugador"></span> : <span id = "vidajug"></span></p>
-            <h3>Vidas <span id = "mascota-enemigo"></span> : <span id = "vidaenem"></span></p>
-            <h2>Elige tu ataque:</h2>
-            <p>
-                <button id="fuego">Fuego🔥</button>
-                <button id="agua">Agua💧</button>
-                <button id="tierra">Tierra🌎</button>
-            </p>
-        </section>
+            <h1 class = "titulo">Mokepom! 🔥💧🌎</h1>
+            <h2 class="subtitulo">Elige tu ataque:</h2>
+            <div class = "tarjetas-ataques">
+                <button id="fuego" class ="boton-ataque">Fuego🔥</button>
+                <button id="agua" class ="boton-ataque">Agua💧</button>
+                <button id="tierra" class ="boton-ataque">Tierra🌎</button>
+            </div>
+    
+            
+            <div id="mensajes">
+                <p id = "resultado">!!MUCHA SUERTE!!</p>
+                <section id = "REINICIAR">
+                     <input class= "recarga" type="button" value="Reiniciar" onclick="location.reload()">
+                </section>
+            </div>
+                
+            </div>
+            <div class="bloque-mensajes">
+                <div class="jugador">
+                    <p class = "vidajugador" id = "vidajug"></p>
+                    <p id = "mascota-jugador"></p>
+                    <div class = "ataques " id = "ataques-jugador"></div>
+                </div>
 
-        <section id="mensajes">
-            <!--
-            <p><span id = "atJugador"></span> , <span id = "atEnemigo"></span></p>-->
-            <p></p>
-        </section>
-        <section id="reglas">
-            <h2>Reglas del juego</h2>
-             <!--
-            <p>Fuego🔥 destruye a tierra🌎, Agua💧 apaga el Fuego🔥, tierra🌎 aplasta el Agua💧</p>-->
-            <ul>
-                <li>Fuego🔥 destruye a tierra🌎</li>
-                <li>Agua💧 apaga el Fuego🔥</li>
-                <li>tierra🌎 aplasta el Agua💧</li>
-            </ul>
-        </section>
-        <section id = "REINICIAR">
-            <!--
-            <button id="reiniciar">REINICIAR</button>-->
-            <input type="button" value="Reiniciar" onclick="location.reload()">
-        </section>
+                <div class="enemigo">
+                    <p class = "vidaenemigo" id = "vidaenem"></p>
+                    <p id = "mascota-enemigo"></p>
+                    <div class = "ataques " id = "ataques-enemigo"></div>
+                </div>
 
+            </div>
+            <section id ="reglas" class="reglas">
+                <h2>Reglas del juego</h2>
+                <ul>
+                    <li>Fuego🔥 destruye a tierra🌎</li>
+                    <li>Agua💧 apaga el Fuego🔥</li>
+                    <li>tierra🌎 aplasta el Agua💧</li>
+                </ul>
+            </section>
+        </section>
     </body>
 </html>
