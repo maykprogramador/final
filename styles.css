@@ -143,9 +143,9 @@ input.recarga{
     color:rgb(255, 255, 255);
 }
 
-@media (max-width:414px){
+@media screen and (max-width:400px){
     .titulo{
-        font-size: 32px;
+        font-size: 45px;
     }
     .tarjetas,.tarjetas-ataques{
         flex-direction: column;
