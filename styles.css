@@ -176,7 +176,10 @@ input.recarga{
 }
 .reglas{
     color:rgb(255, 255, 255);
+    display: flex;
+    flex-direction: column;
 }
+
 
 @media screen and (max-width:520px){
     .titulo{
