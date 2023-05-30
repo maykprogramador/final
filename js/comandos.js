@@ -1,45 +1,110 @@
+
+const ocultarReglas = document.getElementById('reglas')
+const ocultarataques = document.getElementById('seleccionar-ataque')
+const ocultarmascota = document.getElementById('seleccionar-mascota')
+const boton_selecmascota = document.getElementById('boton-mascota')
+
+const sectionMensajes =document.getElementById('resultado')
+const ataquesjugador = document.getElementById('ataques-jugador')
+const ataquesenemigo = document.getElementById('ataques-enemigo')
+
+const contenedortarjetas = document.getElementById('contenedor-tarjetas')
+const ataqueshtml=document.getElementById('ataquess')
+let boton_fuego
+let boton_agua 
+let boton_tierra
+let botones = []
+let poderJugador
+let poderEnemigo
+let arrayataquesjugador
 ataquejugador =''
 enemigo =''
 gameover=''
-vidaJugador = 3
-vidaEnemigo = 3
 contjugador = 0
 contenemigo = 0
+let mascotas = []
+let mascotajugador
+let mascotaenemiga
+/*ESCALAS DE PODER
+tsunami 10
+terremoto  8
+inferno 7
+fénix 6
+roca volcánica 5
+splash 4 
+magneto 3
+flame 2 
+agua 1
+lodo 1*/ 
+class Mokempom{
+    constructor(nombre,foto,vida){
+        this.nombre = nombre
+        this.foto = foto
+        this.vida = vida
+        this.ataques=[]
+    }
+}
+
+let fennec = new Mokempom('Fenecc','./assets/FENEC.jpg',5)
+
+let dominuss = new Mokempom('Dominuss','./assets/DOMINUS.jpg',5)
+
+let octanee = new Mokempom('Octanee','./assets/OCTANEE.jpg',5)
+
+dominuss.ataques.push(
+    {nombre: 'Agua💧',id: 'agua',poder: 1},
+    {nombre: 'Tsunami🌊',id: 'agua',poder: 10}, 
+    {nombre: 'Splash💦',id: 'agua',poder: 4},
+    {nombre: 'Flame🔥',id: 'fuego',poder: 2},
+    {nombre: 'Terremoto🌎',id: 'tierra',poder: 8})
+
+fennec.ataques.push(
+    {nombre: 'Magneto🌎🧲',id: 'tierra',poder: 3},
+    {nombre: 'Roca Volcanica🌋🌍',id: 'tierra',poder: 5},
+    {nombre: 'Terremoto🥌🌎',id: 'tierra',poder: 8},
+    {nombre: 'Flame🔥',id: 'fuego',poder: 2},
+    {nombre: 'Agua💧',id: 'agua',poder: 1})
+octanee.ataques.push(
+    {nombre: 'Fenix🐦🔥',id: 'fuego',poder: 6},
+    {nombre: 'Inferno🔥🌋',id: 'fuego',poder: 7},
+    {nombre: 'Flame🔥🔥',id: 'fuego',poder: 2},
+    {nombre: 'Splash💦',id: 'agua',poder: 4},
+    {nombre: 'Lodo🌎',id: 'tierra',poder: 1})    
+mascotas.push(dominuss,fennec,octanee)//agregar a un array vacio x valores
+
+//console.log(fennec)//estp sirve para verificar el funcionamiento de 'x' variable es como un depurador web
 function iniciarJuego(){
-    let ocultarataques = document.getElementById('seleccionar-ataque')
-    let ocultarReglas = document.getElementById('reglas')
     ocultarReglas.style.display='none'
     ocultarataques.style.display='none'
-    document.getElementById('vidajug').innerHTML=vidaJugador
-    document.getElementById('vidaenem').innerHTML=vidaEnemigo
-    let boton_selecmascota = document.getElementById('boton-mascota')
+
+    mascotas.forEach((Mokempom)=>{
+        opciondeMokepom =`
+        <input type="radio"  name = "mascota" id= ${Mokempom.nombre}> 
+        <label class = "tarjetas-de-mokepom" for=${Mokempom.nombre}>
+            <p>${Mokempom.nombre}</p>
+            <img src=${Mokempom.foto} alt=${Mokempom.nombre}> 
+        </label>
+        `
+        //toda la linea anterior me inserta todo lo de las comillas al doc html modificandolo
+        contenedortarjetas.innerHTML += opciondeMokepom
+    })
+    
     boton_selecmascota.addEventListener('click',seleccionarMascotaJugador)
-    let boton_fuego = document.getElementById('fuego')
-    boton_fuego.addEventListener('click',ataquefuego)
-    let boton_agua = document.getElementById('agua')
-    boton_agua.addEventListener('click',ataqueagua)
-    let boton_tierra = document.getElementById('tierra')
-    boton_tierra.addEventListener('click',ataquetierra)
+    
+    
 }
 function finDeljuego(){
     
-    if(contjugador == contenemigo){
-        vidaEnemigo = vidaEnemigo - 1
-        vidaJugador = vidaJugador - 1 
+    if(poderJugador == poderEnemigo){
         gameover = "EMPATE"
     }
-    else if(contjugador == 1 && contenemigo == 3){
+    else if(poderJugador > poderEnemigo){
         vidaEnemigo = vidaEnemigo - 1
         gameover = "GANASTE"
-    }else if(contjugador == 2 && contenemigo == 1){
-        vidaEnemigo = vidaEnemigo - 1
-       
-    }else if(contjugador == 3 && contenemigo == 2){
-        vidaEnemigo = vidaEnemigo - 1
-        gameover = "GANASTE"
-    }else{
-        vidaJugador = vidaJugador - 1
+        }
+    else{
         gameover = "PERDISTE"
+        vidaJugador = vidaJugador - 1
     }
     mensajes()
     if(vidaJugador == 0 || vidaEnemigo == 0){
@@ -65,11 +130,6 @@ function gameOverr(){
 function mensajes(){
     document.getElementById('vidajug').innerHTML=vidaJugador
     document.getElementById('vidaenem').innerHTML=vidaEnemigo
-    
-    let sectionMensajes =document.getElementById('resultado')
-    let ataquesjugador = document.getElementById('ataques-jugador')
-    let ataquesenemigo = document.getElementById('ataques-enemigo')
-    
     /*parrafo.innerHTML = ataquejugador+" , "+enemigo+"--"+gameover+"--"*/
     let nuevoataquesjugador= document.createElement('p')
     let nuevoataquesenemigo= document.createElement('p')
@@ -83,79 +143,128 @@ function mensajes(){
 
 }   
 
-
-
 function ataqueEnemigo(){
-    let random=Math.ceil(Math.random()*3)
-    if(random == 1){
-        enemigo ="FUEGO"
-        contenemigo = 1
-    }else if(random == 2){
-        enemigo ="AGUA"
-        contenemigo =2
-    }else{
-        enemigo ="TIERRA"
-        contenemigo =3
-    }
-    
-    //document.getElementById('atEnemigo').innerHTML=enemigo
-    //document.getElementById('atJugador').innerHTML=ataquejugador
-   // alert(enemigo)
+    let ataquesenemigos = extraerataques(mascotaenemiga)
+    let random=Math.floor(Math.random()*ataquesenemigos.length)
+    enemigo = ataquesenemigos[random].nombre
+    poderEnemigo = ataquesenemigos[random].poder
+   // console.log(enemigo)
     finDeljuego()
     
 }
 function ataquefuego (){
-    ataquejugador ="FUEGO" 
     contjugador = 1
-    //alert(ataquejugador)
     ataqueEnemigo()
 }
 function ataqueagua (){
-    ataquejugador ="AGUA"
     contjugador = 2
-   // alert(ataquejugador)
     ataqueEnemigo()
 }
-function ataquetierra (){
-    ataquejugador ="TIERRA" 
+function ataquetierra (){ 
     contjugador = 3
-    //alert(ataquejugador)
     ataqueEnemigo()
 }
 function seleccionarMascotaEnemigo(){
-    resultado = Math.ceil(Math.random() *3)
-    if(resultado == 1){document.getElementById('mascota-enemigo').innerHTML="Dominuss"
-    }
-    else if(resultado == 2){document.getElementById('mascota-enemigo').innerHTML="fenecc"
-    }
-    else{document.getElementById('mascota-enemigo').innerHTML="optanee"}
+    resultado = Math.floor(Math.random() * (mascotas.length))
+    document.getElementById('mascota-enemigo').innerHTML=mascotas[resultado].nombre
+    mascotaenemiga = mascotas[resultado].nombre
 }
-
+    
 function seleccionarMascotaJugador(){
-    let ocultarataques = document.getElementById('seleccionar-ataque')
-    let ocultarReglas = document.getElementById('reglas')
-    let ocultarmascota = document.getElementById('seleccionar-mascota')
     ocultarmascota.style.display='none'
     ocultarReglas.style.display='flex'
     ocultarataques.style.display='flex'
-    if(document.getElementById('mascota1').checked){
-        //*alert("seleccionaste mascota1")
-        document.getElementById('mascota-jugador').innerHTML="Dominuss"
+    if(document.getElementById('Dominuss').checked){
+        
+        document.getElementById('mascota-jugador').innerHTML=document.getElementById('Dominuss').id
+        seleccionarMascotaEnemigo()
+        mascotajugador =document.getElementById('mascota-jugador').innerHTML=document.getElementById('Dominuss').id 
+    }
+    else if(document.getElementById('Fenecc').checked){
+     
+        document.getElementById('mascota-jugador').innerHTML=document.getElementById('Fenecc').id
+        mascotajugador =document.getElementById('mascota-jugador').innerHTML=document.getElementById('Fenecc').id 
         seleccionarMascotaEnemigo()
     }
-    else if(document.getElementById('mascota2').checked){
-        //alert("seleccionaste mascota2")
-        document.getElementById('mascota-jugador').innerHTML="fenecc"
-        seleccionarMascotaEnemigo()
-    }
-    else if (document.getElementById('mascota3').checked){
-       // alert("seleccionaste mascota3") 
-        document.getElementById('mascota-jugador').innerHTML="optanee"
+    else if (document.getElementById('Octanee').checked){
+      
+        document.getElementById('mascota-jugador').innerHTML=document.getElementById('Octanee').id
+        mascotajugador =document.getElementById('mascota-jugador').innerHTML=document.getElementById('Octanee').id 
         seleccionarMascotaEnemigo()    
     }else{alert("selecciona una mascota")}
-    
+    mostrarataques(extraerataques(mascotajugador))
+
 }
 
+function extraerataques(mascotajugador){
+    let ataques
+    for (let i = 0; i < mascotas.length; i++) {
+        if (mascotajugador == mascotas[i].nombre){
+            ataques = mascotas[i].ataques
+        }
+    }
+    return ataques
+}
+function mostrarataques(ataques){
+    arrayataquesjugador = ataques
+    ataques.forEach((ataque)=>{
+        opciondeataque =`
+        <button id=${ataque.id} class ="boton-ataque Bataque">${ataque.nombre}</button>
+        `
+        //toda la linea anterior me inserta todo lo de las comillas al doc html modificandolo
+        ataqueshtml.innerHTML += opciondeataque
+    })
+    
+    botones = document.querySelectorAll('.Bataque')
+    vidasmascotas()
+    validarataque()
+}
+function vidasmascotas(){
+    for (let i = 0; i < mascotas.length; i++) {
+        if (mascotajugador == mascotas[i].nombre){
+            vidaJugador = mascotas[i].vida
+        }
+        if(mascotaenemiga == mascotas[i].nombre){
+            vidaEnemigo=mascotas[i].vida
+        }
+    }
+    document.getElementById('vidajug').innerHTML=vidaJugador
+    document.getElementById('vidaenem').innerHTML=vidaEnemigo
+}
+function validarataque(){
+    botones.forEach((validar)=>{
+        validar.addEventListener('click',(e)=>//me extrae las propiedades del evento en este caso target.id
+        {
+            console.log(validar)
+            if(e.target.id == "agua"){
+                //console.log(e.target.id)
+                ataquejugador = e.target.innerHTML
+                escaladePoder(ataquejugador)
+                ataqueagua()
+            }
+            if(e.target.id == "fuego"){
+               // console.log(e.target.id)
+                ataquejugador = e.target.innerHTML
+                escaladePoder(ataquejugador)
+                ataquefuego()
+            }
+            if(e.target.id == "tierra"){
+               // console.log(e.target.id)
+                ataquejugador = e.target.innerHTML
+                escaladePoder(ataquejugador)
+                ataquetierra()
+            }
+        })
+    })
+}
+
+function escaladePoder(nombreataque){
+    for (let i = 0; i < arrayataquesjugador.length; i++) {
+            if(nombreataque == arrayataquesjugador[i].nombre){
+                poderJugador = arrayataquesjugador[i].poder
+            }
+    }
+}
 window.addEventListener('load',iniciarJuego)
 
 
