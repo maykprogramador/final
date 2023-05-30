@@ -51,22 +51,22 @@ let dominuss = new Mokempom('Dominuss','./assets/DOMINUS.jpg',5)
 
 let octanee = new Mokempom('Octanee','./assets/OCTANEE.jpg',5)
 
-dominuss.ataques.push(
+octanee.ataques.push(
     {nombre: 'Agua💧',id: 'agua',poder: 1},
     {nombre: 'Tsunami🌊',id: 'agua',poder: 10}, 
     {nombre: 'Splash💦',id: 'agua',poder: 4},
     {nombre: 'Flame🔥',id: 'fuego',poder: 2},
-    {nombre: 'Terremoto🌎',id: 'tierra',poder: 8})
+    {nombre: 'Terremoto🌎',id: 'tierra',poder: 7})
 
 fennec.ataques.push(
     {nombre: 'Magneto🌎🧲',id: 'tierra',poder: 3},
-    {nombre: 'Roca Volcanica🌋🌍',id: 'tierra',poder: 5},
-    {nombre: 'Terremoto🥌🌎',id: 'tierra',poder: 8},
+    {nombre: 'Roca Volcanica🌋🌍',id: 'tierra',poder: 6},
+    {nombre: 'Terremoto🥌🌎',id: 'tierra',poder: 10},
     {nombre: 'Flame🔥',id: 'fuego',poder: 2},
     {nombre: 'Agua💧',id: 'agua',poder: 1})
-octanee.ataques.push(
+dominuss.ataques.push(
     {nombre: 'Fenix🐦🔥',id: 'fuego',poder: 6},
-    {nombre: 'Inferno🔥🌋',id: 'fuego',poder: 7},
+    {nombre: 'Inferno🔥🌋',id: 'fuego',poder: 10},
     {nombre: 'Flame🔥🔥',id: 'fuego',poder: 2},
     {nombre: 'Splash💦',id: 'agua',poder: 4},
     {nombre: 'Lodo🌎',id: 'tierra',poder: 1})    
@@ -191,7 +191,9 @@ function seleccionarMascotaJugador(){
         document.getElementById('mascota-jugador').innerHTML=document.getElementById('Octanee').id
         mascotajugador =document.getElementById('mascota-jugador').innerHTML=document.getElementById('Octanee').id 
         seleccionarMascotaEnemigo()    
-    }else{alert("selecciona una mascota")}
+    }else{alert("selecciona una mascota")
+        location.reload()
+    }
     mostrarataques(extraerataques(mascotajugador))
 
 }
