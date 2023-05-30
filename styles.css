@@ -6,8 +6,6 @@ body{
     font-size: 28px;
     width: 100vw;
     height: 100vh;
-    margin: 0;
-    padding: 0;
 }
 
 #seleccionar-mascota{
@@ -75,6 +73,36 @@ p{
 input{
     display: none;
 }
+input:hover + label{/*cada vez que pasa el mouse por un lugar ese realiza la accion que este en las siguientes lineas*/
+    background-color:#19A7CE;
+    transform: scale(1.1);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
+    transition: transform 0.3s ease-in-out;
+}
+input:checked + label{ /*cuando se da click en el label hara una accion */
+    background-color:#6D67E4;  
+}
+/*@keyframes sink {
+    0% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(0.9);
+    }
+    100% {
+      transform: scale(1);
+    }
+  }*/
+input:checked + label p{
+    color: white; 
+}
+.animacion:checked{
+    transform: scale(0.8);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
+    transition: transform 0.3s ease-in-out;
+}
+.animacion:hover{
+    transform: scale(1.1);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
+    transition: transform 0.3s ease-in-out;
+}
 
 #seleccionar-ataque{
     display:flex; /*para alinear las cajas hacia la derecha*/
@@ -92,7 +120,11 @@ input{
     margin-right: 15px;
     font-size: 27px;
 }
-
+.boton-ataque:hover{
+    transform: scale(0.9);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
+    transition: transform 0.3s ease-in-out;
+    
+}
 
 #mensajes{
     font-size: 24px;
@@ -114,8 +146,8 @@ input.recarga{
 }
 .bloque-mensajes{
     display: grid;
-    grid-template-columns: 182px 131px;
-    width: 330px;
+    grid-template-columns: 247px 247px;
+    width: 506px;
 }
 .jugador,.enemigo{
     display:flex;
@@ -126,24 +158,27 @@ input.recarga{
     background: radial-gradient(black, transparent);
     border: 1px solid;
     border-radius: 45px;
-    width: 150px;
+    width: 244px;
 }
 .enemigo{
     background: radial-gradient(black, transparent);
     border: 1px solid;
     border-radius: 45px;
-    margin-left: 23px;
-    width: 150px;
+    margin-left: 20px;
+    width: 245px;
 }
 
 .ataques{
-    margin: 0px;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 .reglas{
     color:rgb(255, 255, 255);
 }
 
-@media screen and (max-width:400px){
+@media screen and (max-width:520px){
     .titulo{
         font-size: 45px;
     }
@@ -151,10 +186,15 @@ input.recarga{
         flex-direction: column;
     }
     .jugador{
-        margin-right: 50px;
+        width: 170px;
     }
     .enemigo{
-        margin-left: 9px;
+        width: 175px;
+    }
+    .bloque-mensajes{
+        grid-template-columns: 185px 177px;
+        width: 380px;
+        font: size 17px;
     }
     .reglas{
         display: flex;
