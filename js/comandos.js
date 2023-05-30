@@ -175,7 +175,6 @@ function seleccionarMascotaJugador(){
     ocultarReglas.style.display='flex'
     ocultarataques.style.display='flex'
     if(document.getElementById('Dominuss').checked){
-        
         document.getElementById('mascota-jugador').innerHTML=document.getElementById('Dominuss').id
         seleccionarMascotaEnemigo()
         mascotajugador =document.getElementById('mascota-jugador').innerHTML=document.getElementById('Dominuss').id 
@@ -195,7 +194,6 @@ function seleccionarMascotaJugador(){
         location.reload()
     }
     mostrarataques(extraerataques(mascotajugador))
-
 }
 
 function extraerataques(mascotajugador){
@@ -216,7 +214,7 @@ function mostrarataques(ataques){
         //toda la linea anterior me inserta todo lo de las comillas al doc html modificandolo
         ataqueshtml.innerHTML += opciondeataque
     })
-    
+  
     botones = document.querySelectorAll('.Bataque')
     vidasmascotas()
     validarataque()
