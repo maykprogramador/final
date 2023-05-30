@@ -24,6 +24,7 @@ body{
 .subtitulo{
     color:rgb(255, 255, 255);
     font-size: 25px;
+    margin-top: 75px;
 }
 h2{
     color:rgb(255, 255, 255);
@@ -184,6 +185,9 @@ input.recarga{
 @media screen and (max-width:520px){
     .titulo{
         font-size: 45px;
+    }
+    .subtitulo{
+        margin-top: 40px;
     }
     .tarjetas,.tarjetas-ataques{
         flex-direction: column;
