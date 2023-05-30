@@ -3,7 +3,6 @@
     <head>  
         <meta charset="UTF-8" />
         <title> Mokepom</title>
-        <script src = "js/comandos.js"> </script>
         <link rel="stylesheet" href="styles.css">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
     </head>
@@ -12,37 +11,19 @@
 
             <h1 class = "titulo">Mokepom! 🔥💧🌎</h1>
             <h2 class="subtitulo">Elige tu mascota:</h2>
-            <div class = "tarjetas">
-                <label class = "tarjetas-de-mokepom" for="mascota1">
-                    <p>Dominuss</p>
-                    <img src="./assets/DOMINUS.jpg" alt="Dominus"> 
-                </label>
-                <input type="radio"  name = "mascota" id= "mascota1"> 
-
-                <label class = "tarjetas-de-mokepom" for="mascota2">
-                    <p>Fenecc</p>
-                    <img src="./assets/FENEC.jpg"  alt="Fenecc">
-                </label>
-                <input type="radio" name = "mascota" id = "mascota2">
-
-                <label class = "tarjetas-de-mokepom" for="mascota3">
-                    <p>Octanee</p>
-                    <img src="./assets/OCTANEE.jpg" alt="octanee">
-                </label>
-                <input type="radio" name = "mascota" id = "mascota3">
+            <div id = "contenedor-tarjetas" class = "tarjetas">
+                
             </div>
             
-            <button id="boton-mascota">Seleccionar</button>
+            <button id="boton-mascota" class = "animacion">Seleccionar</button>
 
         </section>
 
         <section id = "seleccionar-ataque"> 
             <h1 class = "titulo">Mokepom! 🔥💧🌎</h1>
             <h2 class="subtitulo">Elige tu ataque:</h2>
-            <div class = "tarjetas-ataques">
-                <button id="fuego" class ="boton-ataque">Fuego🔥</button>
-                <button id="agua" class ="boton-ataque">Agua💧</button>
-                <button id="tierra" class ="boton-ataque">Tierra🌎</button>
+            <div class = "tarjetas-ataques" id = "ataquess">
+                
             </div>
     
             
@@ -77,5 +58,6 @@
                 </ul>
             </section>
         </section>
+        <script src = "js/comandos.js"> </script>
     </body>
 </html>
