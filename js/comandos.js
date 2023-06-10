@@ -56,8 +56,8 @@ anchomapa=window.innerWidth - 50
 anchomaximo = 600
 if(anchomapa < anchomaximo){
     anchomapa = 380
-    x = 65
-    y = 65
+    x = 60
+    y = 60
 }
 else{
     anchomapa = 600
