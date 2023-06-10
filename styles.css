@@ -202,7 +202,7 @@ input.recarga{
 .ataques{
     margin: 10px;
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     align-items: center;
 }
 .reglas{
@@ -220,7 +220,8 @@ input.recarga{
         margin-top: 40px;
     }
     .tarjetas,.tarjetas-ataques{
-        flex-direction: column;
+        flex-wrap: wrap;
+        justify-content: space-evenly;
     }
     .jugador{
         width: 170px;
