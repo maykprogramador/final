@@ -97,7 +97,7 @@ input:checked + label{ /*cuando se da click en el label hara una accion */
 input:checked + label p{
     color: white; 
 }
-.animacion:checked{
+.animacion:active{
     transform: scale(0.8);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
     transition: transform 0.3s ease-in-out;
 }
@@ -132,6 +132,14 @@ input:checked + label p{
     border-radius: 20px;
     background-color: #FFDEB9;
 }
+.flechas:hover{
+    cursor: pointer;
+}
+.flechas:active{
+    transform: scale(0.8) ;  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
+    transition: transform 0.3s ease-in-out;
+}
+    
 .izquierda,.derecha{
     margin-top: 20px;
 }
@@ -152,11 +160,14 @@ input:checked + label p{
     font-size: 27px;
 }
 .boton-ataque:hover{
-    transform: scale(0.9);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
+    transform: scale(0.8) ;  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
     transition: transform 0.3s ease-in-out;
-    
+    cursor: pointer;
 }
-
+.boton-ataque:active{
+    transform: scale(0.8);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
+    transition: transform 0.3s ease-in-out;
+}
 #mensajes{
     font-size: 24px;
     padding: 6px;
