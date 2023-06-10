@@ -200,12 +200,10 @@ function mensajes(){
 function ataqueEnemigo(){
     console.log(mascotaene)
     let ataquesenemigos = extraerataques(mascotaene.nombre)
-    let random=Math.floor(Math.random()*ataquesenemigos.length-1)
+    let random=Math.floor(Math.random()*ataquesenemigos.length)
     enemigo = ataquesenemigos[random].nombre
     poderEnemigo = ataquesenemigos[random].poder
-    
     finDeljuego()
-    
 }
 function ataquefuego (){
     contjugador = 1
