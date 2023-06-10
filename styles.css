@@ -128,11 +128,21 @@ input:checked + label p{
     flex-direction: column;
     margin: 5px;
 }
+
 .arriba,.abajo,.izquierda,.derecha{
-    width: 50px;
-    height: 22px;
+    width: 55px;
+    height: 25px;
     border-radius: 20px;
     background-color: #FFDEB9;
+}
+.arriba{
+    margin-bottom: 5px;
+}
+.abajo{
+    margin-top: 12px;
+}
+.izquierda,.derecha{
+    margin-top: 27px;
 }
 .flechas:hover{
     cursor: pointer;
@@ -142,9 +152,7 @@ input:checked + label p{
     transition: transform 0.3s ease-in-out;
 }
     
-.izquierda,.derecha{
-    margin-top: 20px;
-}
+
 #seleccionar-ataque{
     display:flex; /*para alinear las cajas hacia la derecha*/
     flex-direction:column;/*para alinear las cajas hacia x direccion*/
