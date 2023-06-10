@@ -79,6 +79,7 @@ input:hover + label{/*cada vez que pasa el mouse por un lugar ese realiza la acc
     background-color:#19A7CE;
     transform: scale(1.1);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 input:checked + label{ /*cuando se da click en el label hara una accion */
     background-color:#6D67E4;  
@@ -104,6 +105,7 @@ input:checked + label p{
 .animacion:hover{
     transform: scale(1.1);  /*realiza la animacion sobre el label puede ser hundirse al pasar el mouse o sobreponerse todo depende del valor de scale*/
     transition: transform 0.3s ease-in-out;
+    cursor: pointer;
 }
 
 #ver-mapa{
