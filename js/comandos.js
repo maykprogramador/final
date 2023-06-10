@@ -191,6 +191,9 @@ function mensajes(){
     sectionMensajes.innerHTML=gameover
     nuevoataquesjugador.innerHTML=ataquejugador
     nuevoataquesenemigo.innerHTML=enemigo
+
+    nuevoataquesjugador.id = "mensaje-ataque"
+    nuevoataquesenemigo.id = "mensaje-ataque"
     
     ataquesjugador.appendChild(nuevoataquesjugador)
     ataquesenemigo.appendChild(nuevoataquesenemigo)
